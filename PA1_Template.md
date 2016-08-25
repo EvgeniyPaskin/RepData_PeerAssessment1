@@ -59,8 +59,15 @@ The result is tibble data frame
 ```
 
 ```
-##   stepscount
-## 1         NA
+## # A tibble: 6 x 2
+##         date stepscount
+##       <date>      <int>
+## 1 2012-10-01         NA
+## 2 2012-10-02        126
+## 3 2012-10-03      11352
+## 4 2012-10-04      12116
+## 5 2012-10-05      13294
+## 6 2012-10-06      15420
 ```
 
 2. Make a histogram of the total number of steps taken each day
@@ -70,9 +77,7 @@ The result is tibble data frame
         hist(A1$stepscount , main="Number of steps per day", xlab="Number of steps")
 ```
 
-```
-## Error in hist.default(A1$stepscount, main = "Number of steps per day", : invalid number of 'breaks'
-```
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png)
         
 3. Calculate and report the mean and median of the total number of steps taken per day
 
@@ -82,7 +87,7 @@ The result is tibble data frame
 ```
 
 ```
-## [1] NaN
+## [1] 10766.19
 ```
 
 ```r
@@ -90,7 +95,7 @@ The result is tibble data frame
 ```
 
 ```
-## [1] NA
+## [1] 10765
 ```
 
 
@@ -178,38 +183,15 @@ Make a histogram of the total number of steps taken each day
 A2  <- summarise(group_by(activ, date), stepscount = sum(steps))
         A2  <- A2[!is.na(A2$stepscount),]
         hist(A2$stepscount , main="Number of steps per day", xlab="Number of steps")
-```
-
-```
-## Error in A2$stepscount: $ operator is invalid for atomic vectors
-```
-
-```r
         abline(v=mean(A2$stepscount), col="Red" )
-```
-
-```
-## Error in A2$stepscount: $ operator is invalid for atomic vectors
-```
-
-```r
         abline(v=mean(A2$stepscount), col="Blue" )
-```
-
-```
-## Error in A2$stepscount: $ operator is invalid for atomic vectors
-```
-
-```r
         legend(x = "topright", # location of legend within plot area
                c("Histogram", "Mean", "mean"),
                col = c("chocolate3", "blue", "red"),
                lwd = c(2, 2, 2))
 ```
 
-```
-## Error in strwidth(legend, units = "user", cex = cex, font = text.font): plot.new has not been called yet
-```
+![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13-1.png)
 
 Calculate and report the mean and median total number of steps taken per day. 
 
@@ -220,7 +202,7 @@ Calculate and report the mean and median total number of steps taken per day.
 ```
 
 ```
-## Error in A2$stepscount: $ operator is invalid for atomic vectors
+## [1] 10766.19
 ```
 
 ```r
@@ -228,7 +210,7 @@ Calculate and report the mean and median total number of steps taken per day.
 ```
 
 ```
-## Error in A2$stepscount: $ operator is invalid for atomic vectors
+## [1] 10765
 ```
 
 ##5. Are there differences in activity patterns between weekdays and weekends?
